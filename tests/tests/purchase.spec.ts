@@ -18,17 +18,25 @@ test.describe('Purchase Product Flow', () => {
     // Sort by price low to high
     await productPage.sortBy('lohi');
     // Add last product to the cart
-    await productPage.addLastProductToCart();
+    const lastProductName = await productPage.addLastProductToCart();
 
     // Sort by name
     await productPage.sortBy('az');
     // Add the first product to the cart
-    await productPage.addFirstProductToCart();
+    const topRightProductName =  await productPage.addFirstProductToCart();
+
+    //Saving product names
+    const addedProductNames = [lastProductName, topRightProductName];
 
     // Go to cart and verify items
     await productPage.goToCart();
-    //Check on products
-    expect(await cartPage.getCartItemsCount()).toBe(2);
+
+    // Get products nmes in the cart
+    const cartProductNames = await cartPage.getProductNames();
+
+    //Check if they're equal
+    expect(cartProductNames).toEqual(addedProductNames);
+    
 
     // Proceed to checkout and complete purchase
     await cartPage.proceedToCheckout();

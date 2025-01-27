@@ -8,13 +8,16 @@ export class ProductPage {
   }
 
   async addLastProductToCart() {
-    const products = await this.page.locator('[data-test="inventory-list"]');
-    await products.locator('.btn_inventory').last().click();
+    const products = await this.page.locator('.inventory_item_name').last().allTextContents();
+    const lastProductIndex = products.length - 1;
+    await this.page.locator('.btn_inventory').last().click();
+    return products[lastProductIndex];
   }
 
   async addFirstProductToCart() {
-    const products = await this.page.locator('.inventory_item');
-    await products.locator('.btn_inventory').first().click();
+    const products = await this.page.locator('.inventory_item_name').nth(1).allTextContents();
+    await this.page.locator('.btn_inventory').nth(1).click();
+    return products[0];
   }
 
   async goToCart() {
