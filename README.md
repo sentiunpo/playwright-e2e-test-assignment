@@ -2,16 +2,17 @@
 
 ## Overview
 In this project you can find an E2E (end-to-end) test suite for verifying the main functionalities of the Sauce Demo website (you can find it here: ([https://www.saucedemo.com/](https://www.saucedemo.com/)).
-This project is entirely written with **Playwright** (using TypeScript) and ensure the coverage of functionalities such as:
+This project is entirely written using **Playwright** with **TypeScript** and covers key functionalities such as:
 - **Login**
 - **Purchase Flow**
 - **Smoke Test**
 
 
 ## Prerequisites
+Before running the tests, make sure you have the following installed:
 1. **Node.js**: Ensure you have Node.js installed.
 To verify installation:
-```bash
+```
 node -v
 npm -v
 ```
@@ -21,18 +22,17 @@ npm -v
 
 ## Setup
 1. Clone this repository:
-   ```bash
-   git clone <repository-url>
-   cd sauce-e2e-tests
+   ```
+   git clone https://github.com/sentiunpo/playwright-e2e-test-assignment
    ```
 
 2. Install dependencies:
-   ```bash
+   ```
    npm install
    ```
 
 3. Install Playwright browsers:
-   ```bash
+   ```
    npx playwright install
    ```
 
@@ -40,24 +40,22 @@ npm -v
 ---
 ## Running Tests 
 To execute all test cases:
-```bash
+```
 npx playwright test
 ```
-### Run Tests with UI
+## Run Tests with UI
 For convenience, you can use the Playwright UI to run and debug tests:
-```bash
+```
 npx playwright test --ui
 ```
 
 ---
 ### HTML Report
 
-To view the HTML report:
+After running the tests, Playwright will generate an HTML report with the test results.
 
 1.  Run the tests: `npx playwright test`
 2.  Open the `playwright-report/index.html` file in your browser.
-
-Playwright automatically generates an interactive HTML report that displays the test results.
 
 ---
 
